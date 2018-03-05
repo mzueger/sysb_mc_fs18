@@ -19,10 +19,10 @@ int main() {
     while(1) {
         if((PIND & (1 << PIND4)) == 0) {  // S1 ist gedrückt
             if(wasPressed == 0) {         // Wenn vorhin nicht gedrückt,
-                counter++;                // Zähler erhöhen
+                counter++;                // dann Zähler erhöhen
                 PORTB = (PORTB & 0xF0) |  // Die minderwertigsten 4 Bit
                         (counter & 0x0F); // des Counters ins PORTB
-                                          // ins PORTB Register schreiben
+                                          // Register schreiben
             }
             wasPressed = 1;               // Merken für nächsten Durchgang
         }
