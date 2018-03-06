@@ -7,9 +7,9 @@ int main() {
     // Ein- und Ausgänge konfigurieren
     DDRD &= ~(1 << DDD4);      // Switch S1 -> PD4 als Eingang konfigurieren 
     DDRB = DDRB | (1 << DDB0); // LED 1 -> PortB0 als Ausgang konfigurieren
-    DDRB = DDRB | (1 << DDB1); // LED 1 -> PortB1 als Ausgang konfigurieren
-    DDRB = DDRB | (1 << DDB2); // LED 1 -> PortB2 als Ausgang konfigurieren
-    DDRB = DDRB | (1 << DDB3); // LED 1 -> PortB3 als Ausgang konfigurieren
+    DDRB = DDRB | (1 << DDB1); // LED 2 -> PortB1 als Ausgang konfigurieren
+    DDRB = DDRB | (1 << DDB2); // LED 3 -> PortB2 als Ausgang konfigurieren
+    DDRB = DDRB | (1 << DDB3); // LED 4 -> PortB3 als Ausgang konfigurieren
     
     // Variablen definieren und initialisieren
     char wasPressed = 0;
