@@ -32,7 +32,7 @@ void buttonInit() {
  * - Kein Paritätsbit
  */
 void usartInit() {
-    UBRR1 = 51;                              // 9600 Baud (bei fosc = 8 MHz)
+    UBRR1 = 25;                              // 19200 Baud (bei fosc = 8 MHz)
     UCSR1B |= 1 << TXEN1;                    // Transmitter aktivieren
     UCSR1B |= 1 << RXEN1;                    // Receiver aktivieren
     UCSR1C |= (1 << UCSZ11) | (1 << UCSZ10); // 8 Data Bits (dazu müssen UCSZ10 und UCSZ11 gesetzt,
@@ -57,7 +57,7 @@ void usartWriteChar(char c) {
     UDR1 = c; // Zeichen in den Ausgangsbuffer schreiben
 }
 
-int8_t usartWriteInt8(int8_t value) {
+void usartWriteInt8(int8_t value) {
     if(value < 0) {                        // Falls Zahl negativ
         usartWriteChar('-');               // Minuszeichen ausgeben
         value = -value;                    // und dann positiv machen
