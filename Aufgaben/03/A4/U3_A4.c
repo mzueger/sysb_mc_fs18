@@ -26,7 +26,7 @@ void buttonInit() {
 
 /**
  * USART1 initialisieren mit
- * - 9600 baud
+ * - 19200 baud
  * - 8 Data Bits
  * - 1 Stop Bit
  * - Kein Paritätsbit
