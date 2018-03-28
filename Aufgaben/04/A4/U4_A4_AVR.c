@@ -109,22 +109,27 @@ int main(void) {
 	usartWriteString(" = ");
 	usartWriteInt8(v1);
 	usartWriteChar('\n');
+	
 	usartWriteString(str2);
 	usartWriteString(" = ");
 	usartWriteInt8(v2);
 	usartWriteChar('\n');
+	
 	usartWriteString(str3);
 	usartWriteString(" = ");
 	usartWriteInt8(v3);
 	usartWriteChar('\n');
+	
 	usartWriteString(str4);
 	usartWriteString(" = ");
 	usartWriteInt8(v4);
 	usartWriteChar('\n');
+	
 	usartWriteString(str5);
 	usartWriteString(" = ");
 	usartWriteInt8(v5);
 	usartWriteChar('\n');
+	
 	usartWriteString(str6);
 	usartWriteString(" = ");
 	usartWriteInt8(v6);
