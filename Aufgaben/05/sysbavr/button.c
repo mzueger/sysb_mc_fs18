@@ -8,7 +8,7 @@
 #include <button.h>
 #include <avr/io.h>
 
-static int8_t button_to_pin(int8_t button) {
+static int8_t buttonToPin(int8_t button) {
 	switch(button) {
 		case BUTTON_S1: return 4;
 		case BUTTON_S2: return 5;
@@ -23,8 +23,8 @@ static int8_t button_to_pin(int8_t button) {
  * 
  * @param button Button to initialize (4..7)
  */
-void button_init(int8_t button) {
-	int8_t pin = button_to_pin(button);
+void buttonInit(int8_t button) {
+	int8_t pin = buttonToPin(button);
 	if(pin >= 0)
 		DDRD &= ~(1 << pin);
 }
@@ -35,8 +35,8 @@ void button_init(int8_t button) {
  * @param button Button to read from PIND (4..7)
  * @return 1 if button pressed, 0 if not pressed and -1 in case of error
  */
-int8_t button_get(int8_t button) {
-	int8_t pin = button_to_pin(button);
+int8_t buttonGet(int8_t button) {
+	int8_t pin = buttonToPin(button);
 	if(pin < 0) return -1;
 	return (PIND & (1 << pin)) == 0;
 }

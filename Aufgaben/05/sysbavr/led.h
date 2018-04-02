@@ -18,9 +18,9 @@
 #define LED_4   3
 
 
-void led_init(int8_t led);
+void ledInit(int8_t led);
 
-void led_set(int8_t led, int8_t state);
+void ledSet(int8_t led, int8_t state);
 
-void led_on(int8_t led);
-void led_off(int8_t led);
+void ledOn(int8_t led);
+void ledOff(int8_t led);

@@ -15,6 +15,6 @@
 #define BUTTON_S3          2
 #define BUTTON_S4          3
 
-void button_init(int8_t button);
+void buttonInit(int8_t button);
 
-int8_t button_get(int8_t button);
+int8_t buttonGet(int8_t button);
