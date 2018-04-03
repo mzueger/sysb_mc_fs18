@@ -1,26 +1,13 @@
 /**********************************************************
  * SysB: Mikrocontroller                                  *
  *                                                        *
- * Driver for LEDs                                        *
+ * String handling                                        *
  *                                                        *
  **********************************************************/
 
 #include <stdint.h>
 
-#define NOF_LEDS 4
+int8_t stringEquals(const char* str1, const char* str2);
 
-#define LED_ON   1
-#define LED_OFF  0
-
-#define LED_1   0
-#define LED_2   1
-#define LED_3   2
-#define LED_4   3
-
-
-void ledInit(int8_t led);
-
-void ledSet(int8_t led, int8_t state);
-
-void ledOn(int8_t led);
-void ledOff(int8_t led);
+int8_t stringToInt16(const char* str, int16_t* res);
+int8_t int16ToString(int16_t value, char* str, int8_t maxl);
