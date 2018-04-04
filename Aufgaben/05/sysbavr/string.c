@@ -1,5 +1,5 @@
 /**********************************************************
- * MME: Embedded Systems                                  *
+ * SysB: Mikrocontroller                                  *
  *                                                        *
  * String handling                                        *
  *                                                        *
