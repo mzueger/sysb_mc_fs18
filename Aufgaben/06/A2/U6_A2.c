@@ -5,14 +5,12 @@
  *      Author: Andreas
  */
 
-
 #include <avr/interrupt.h>
 #include <avr/io.h>
 #include <led.h>
 
-
-ISR(INT0_vect) {
-	if((PIND & (1<<PIND0)) == 1) {
+ISR( INT0_vect) {
+	if ((PIND & (1 << PIND0)) == 1) {
 		ledOn(LED_1);
 	}
 	else {
@@ -20,12 +18,16 @@ ISR(INT0_vect) {
 	}
 }
 
-ISR(INT1_vect) {
-	if((PIND & (1<<PIND1)) == 1) {
-		ledOn(LED_1);
+uint8_t ledIsOn = 0;
+
+ISR( INT1_vect) {
+	if (ledIsOn) {
+		ledOff(LED_2);
+		ledIsOn = 0;
 	}
 	else {
-		ledOff(LED_1);
+		ledOn(LED_2);
+		ledIsOn = 1;
 	}
 }
 
@@ -40,6 +42,7 @@ int main(void) {
 	EICRA &= ~(1 << ISC10);
 	EIMSK |= (1 << INT0) | (1 << INT1);  // INT0 und INT1 aktivieren
 	SREG |= 0x80;        // Global Interrupt Enable
-	while(1);
+	while (1)
+		;
 	return 0;
 }
