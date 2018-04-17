@@ -26,4 +26,5 @@ void usartWriteByte(uint8_t b);
 int8_t usartWriteString(const char* str);
 int8_t usartReadString(char* sb, uint8_t l, char e);
 
+void usartWriteInt8(int8_t value);
 int8_t usartWriteInt16(int16_t v);

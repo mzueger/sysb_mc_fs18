@@ -144,6 +144,23 @@ int8_t usartReadString(char* sb, uint8_t l, char e) {
 	return i;
 }
 
+void usartWriteInt8(int8_t value) {
+    if(value < 0) {                        // Falls Zahl negativ
+    	usartWriteByte('-');               // Minuszeichen ausgeben
+        value = -value;                    // und dann positiv machen
+    }                                      // ACHTUNG: Problem wenn value = -128!
+
+    if(value >= 100) {                     // Wenn dreistellig,
+    	usartWriteByte(value / 100 + '0'); // 100er Stelle ausgeben
+    }
+    if(value >= 10) {                      // Wenn min. zweistellig
+        value = value % 100;               // 100er Stelle wegschneiden
+        usartWriteByte(value / 10 + '0');  // und 10er Stelle ausgeben
+    }
+    value = value % 10;                    // Zehner Stelle wegschneiden
+    usartWriteByte(value + '0');           // und letzte Stelle ausgeben
+}
+
 #define UART_WRITE_INT16_BUFLEN 8
 int8_t usartWriteInt16(int16_t v) {
 	char buf[UART_WRITE_INT16_BUFLEN];
