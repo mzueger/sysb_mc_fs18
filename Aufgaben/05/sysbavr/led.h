@@ -17,6 +17,8 @@
 #define LED_3   2
 #define LED_4   3
 
+#define FIRST_LED LED_1
+#define LAST_LED  LED_4
 
 void ledInit(int8_t led);
 

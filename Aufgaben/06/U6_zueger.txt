@@ -1,0 +1,22 @@
+Übung 6: Interrupts
+===================
+
+Diese Aufgaben sind im Gegensatz zu denjenigen im Skrip auch
+mit nur einem externen Taster lösbar.
+
+1) Implementieren Sie ein Programm welches LED1 leuchten lässt,
+   solange der externe Taster gedrückt ist.
+
+2) Ändern Sie das Programm so ab, dass bei jedem Betätigen des
+   externen Tasters die LED2 ein- bzw. wieder ausgeschaltet wird.
+
+3) Zählen Sie, wie viele Male der externe Taster gedrückt wurde.
+   Nach jeweils 10 Betätigungen soll der Wert über die serielle
+   Schnittstelle ausgegeben werden.
+
+4) Interrupts können eingesetzt werden, um via USART1 Zeichen zu
+   empfangen. Implementieren Sie eine Interrupt Service Routine,
+   die ein Zeichen empfängt und zurückschickt (Echo).
+   Hinweis: Informieren Sie sich im User-Manual, wie Sie den USART
+   konfigurieren müssen.
+   Der Kopf der ISR lautet: ISR(USART1_RX_vect).

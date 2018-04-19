@@ -1,11 +1,11 @@
 /**********************************************************
  * SysB: Mikrocontroller                                  *
  *                                                        *
- * Driver for LEDs                                        *
+ * Driver for LEDs at Port B                              *
  *                                                        *
  **********************************************************/
 
-#include <led.h>
+#include "led.h"
 #include <avr/io.h>
 
 /**
@@ -14,7 +14,7 @@
  * @param led LED to initialize (0..3)
  */
 void ledInit(int8_t led) {
-	if((led >= 0) && (led < NOF_LEDS)) {
+	if(led >= FIRST_LED && led <= LAST_LED) {
 		DDRB |= (1 << (DDB0 + led));
 	}
 }
@@ -26,12 +26,10 @@ void ledInit(int8_t led) {
  * @param state LED_ON or LED_OFF
  */
 void ledSet(int8_t led, int8_t state) {
-	if(led >= 0 && led < NOF_LEDS) {
-		if(state == LED_ON)
-			ledOn(led);
-		else if(state == LED_OFF)
-			ledOff(led);
-	}
+    if(state == LED_ON)
+        ledOn(led);
+    else if(state == LED_OFF)
+        ledOff(led);
 }
 
 /**
@@ -40,7 +38,7 @@ void ledSet(int8_t led, int8_t state) {
  * @param led LED to turn on (0..3)
  */
 void ledOn(int8_t led) {
-	if(led >= 0 && led < NOF_LEDS) {
+	if(led >= FIRST_LED && led <= LAST_LED) {
 		PORTB  |= (1 << (PORTB0 + led));
 	}
 }
@@ -51,7 +49,7 @@ void ledOn(int8_t led) {
  * @param led LED to turn off (0..3)
  */
 void ledOff(int8_t led) {
-	if(led >= 0 && led < NOF_LEDS) {
+	if(led >= FIRST_LED && led <= LAST_LED) {
 		PORTB &= ~(1 << (PORTB0 + led));
 	}
 }

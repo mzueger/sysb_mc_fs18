@@ -7,13 +7,20 @@
 
 #include <stdint.h>
 
-#define NOF_BUTTONS        4
 #define BUTTON_PRESSED     1
 #define BUTTON_NOT_PRESSED 0
-#define BUTTON_S1          0
-#define BUTTON_S2          1
-#define BUTTON_S3          2
-#define BUTTON_S4          3
+
+#define BUTTON_S1          4
+#define BUTTON_S2          5
+#define BUTTON_S3          6
+#define BUTTON_S4          7
+
+#define FIRST_BUTTON       BUTTON_S1
+#define LAST_BUTTON        BUTTON_S4
+
+#define BUTTON_EXT         1
+
+#define BUTTON_INV         -1
 
 void buttonInit(int8_t button);
 

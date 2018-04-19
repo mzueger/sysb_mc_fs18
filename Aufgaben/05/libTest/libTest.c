@@ -20,11 +20,11 @@ int main(void) {
 
 	usartInit96008N1();
 
-	for(int8_t i = 0; i < NOF_BUTTONS; i++) {
+	for(int8_t i = FIRST_BUTTON; i <= LAST_BUTTON; ++i) {
 		buttonInit(i);
 	}
 
-	for(int8_t i = 0; i < NOF_LEDS; i++) {
+	for(int8_t i = FIRST_LED; i <= LAST_LED; ++i) {
 		ledInit(i);
 	}
 
@@ -62,27 +62,27 @@ int main(void) {
 	else usartWriteString("a2[] -> v2: Failure\n");
 
 	usartWriteString("All LEDs on...\n");
-	for(int8_t i = 0; i < NOF_LEDS; i++) {
+	for(int8_t i = FIRST_LED; i <= LAST_LED; ++i) {
 		ledOn(i);
 		_delay_ms(300);
 	}
 	_delay_ms(2000);
 
 	usartWriteString("All LEDs off...\n");
-	for(int8_t i = 0; i < NOF_LEDS; i++) {
+	for(int8_t i = FIRST_LED; i <= LAST_LED; ++i) {
 		ledOff(i);
 		_delay_ms(300);
 	}
 
 	usartWriteString("Reading buttons:\n");
-	int8_t b = 0;
+	int8_t b = FIRST_BUTTON;
 	while(1) {
-		if(buttonGet(b)) {
-			usartWriteString("Button ");
-			usartWriteByte(b + '0');
+		if(buttonGet(b) == BUTTON_PRESSED) {
+			usartWriteString("Button S_");
+			usartWriteByte(b + '0' - FIRST_BUTTON);
 			usartWriteString(" pressed\n");
 		}
-		b = (b + 1) % NOF_BUTTONS;
+		b = ((b + 1) % 4) + FIRST_BUTTON;
 		_delay_ms(200);
 	}
 
