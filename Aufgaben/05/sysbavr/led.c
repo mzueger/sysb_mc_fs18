@@ -53,3 +53,9 @@ void ledOff(int8_t led) {
 		PORTB &= ~(1 << (PORTB0 + led));
 	}
 }
+
+void ledToggle(int8_t led) {
+	if(led >= FIRST_LED && led <= LAST_LED) {
+		PORTB ^= 1 << (PORTB0 + led);
+	}
+}

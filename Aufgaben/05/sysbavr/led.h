@@ -26,3 +26,5 @@ void ledSet(int8_t led, int8_t state);
 
 void ledOn(int8_t led);
 void ledOff(int8_t led);
+
+void ledToggle(int8_t led);
