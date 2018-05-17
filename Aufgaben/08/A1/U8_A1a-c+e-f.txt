@@ -1,0 +1,20 @@
+Antworten zu Übungsaufgabe 8.1
+==============================
+
+a) TCCR1A: 10000001
+   TCCR1B: 00-11010
+   -> Fast PWM Mode 14
+   -> Teiler 8
+   -> OC1A clear on compare match
+   -> OC1B normal port operation
+   -> OC1C normal port operation
+
+b) PD5
+
+c) 1 MHz
+
+d) siehe U8_A1d.c
+
+e) 2^16 - 1 = 65'535 µs
+
+f) 2^16 - 1 = 65'535 µs
