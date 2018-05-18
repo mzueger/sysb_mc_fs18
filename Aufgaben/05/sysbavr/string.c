@@ -5,7 +5,7 @@
  *                                                        *
  **********************************************************/
 
-#include <string.h>
+#include "string.h"
 
 /**
  * @brief Compares two null terminated strings

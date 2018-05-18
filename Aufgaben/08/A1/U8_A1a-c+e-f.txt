@@ -9,7 +9,7 @@ a) TCCR1A: 10000001
    -> OC1B normal port operation
    -> OC1C normal port operation
 
-b) PD5
+b) PB5
 
 c) 1 MHz
 
