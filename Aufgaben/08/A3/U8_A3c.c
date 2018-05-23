@@ -17,7 +17,7 @@ ISR(TIMER0_COMPA_vect) { // alle 9.984 ms (1 / 8 MHz * 1024 * 78)
     
     TCNT0 = 0;
     counter++;
-    if(counter >= 25) {
+    if(counter >= 200) {
         pwmUpdateOC1A(PERIOD, x ? HIGHTIME_MAX : HIGHTIME_MIN);
         counter = 0;
         x = !x;
