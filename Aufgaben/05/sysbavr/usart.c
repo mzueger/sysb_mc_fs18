@@ -170,3 +170,12 @@ int8_t usartWriteInt16(int16_t v) {
 	
 	return usartWriteString(buf);
 }
+
+void usartWriteFloat(float f) { //f = 1.234
+	short s = (short)f; // s = 1
+	float d = f-(float)s; // d = 0.234
+	short t = d * 1000; // t = 234
+	usartWriteInt16(s);
+	usartWriteByte('.');
+	usartWriteInt16(t);
+}

@@ -11,24 +11,34 @@
 #define HIGHTIME_MIN 1200
 #define HIGHTIME_MAX 2200
 
-ISR(TIMER0_COMPA_vect) { // alle 9.984 ms (1 / 8 MHz * 1024 * 78)
-    static uint8_t counter = 0;
-    static char x = 0;
+ISR(TIMER0_COMPA_vect) { // alle 8.064 ms (1 / 8 MHz * 1024 * 32)
+    static uint16_t highTime = HIGHTIME_MIN;
+    static uint8_t dir = 0;
     
     TCNT0 = 0;
-    counter++;
-    if(counter >= 200) {
-        pwmUpdateOC1A(PERIOD, x ? HIGHTIME_MAX : HIGHTIME_MIN);
-        counter = 0;
-        x = !x;
-    }
+    	if(!dir)	// dir == 0: positiv, dir == 1: negative Richtung
+    	{
+    		highTime++;
+    		if(highTime > HIGHTIME_MAX) {
+    			dir = 1;
+    			highTime = HIGHTIME_MAX-1;	// go down first step
+    		}
+    	}
+    	else {	// negativ
+    		highTime--;
+    		if(highTime < HIGHTIME_MIN) {
+    			dir = 0;
+    			highTime = HIGHTIME_MIN+1;	// count up first step
+    		}
+    	}
+        pwmUpdateOC1A(PERIOD, highTime);
 }
 
 void timer0Init() {
     TCCR0B = 0x00;                       // clear TCCR0B, sets normal timer mode, disable timer
     TCCR0A = 0x00;                       // clear TCCR0A -> normal port operation, no compare match
     TCNT0 = 0;                           // clear timer counter value
-    OCR0A = 78;                          // Compare value A
+    OCR0A = 32;                          // Compare value A
     TIMSK0 |= (1 << OCIE0A);             // Compare match A interrupt
     TCCR0B |= (1 << CS02) | (1 << CS00); // clock / 1024 -> start timer
 }
