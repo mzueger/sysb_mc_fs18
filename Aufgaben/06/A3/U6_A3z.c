@@ -15,6 +15,8 @@ ISR(INT1_vect){
 }
 
 int main(void){
+	clock_prescale_set(clock_div_1);	// clock auf 8MHz
+	
     buttonInit(BUTTON_EXT); // Externen Taster initialisieren
     
     usartInit96008N1();     // RS232-Schnittstelle initialisieren

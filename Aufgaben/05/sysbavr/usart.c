@@ -5,9 +5,9 @@
  *                                                        *
  **********************************************************/
 
-#include <string.h>
+#include "string.h"
 #include <avr/io.h>
-#include <usart.h>
+#include "usart.h"
 
 /**
  * @brief Initialize UART1.
