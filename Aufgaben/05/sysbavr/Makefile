@@ -1,7 +1,7 @@
 MCU = atmega16u4
 F_OSC = 8000000
 TARGET = libsysbavr
-SRC = string.c button.c led.c usart.c pwm.c
+SRC = string.c button.c led.c usart.c pwm.c adc.c
 OPT = s
 CSTANDARD = -std=c99
 
