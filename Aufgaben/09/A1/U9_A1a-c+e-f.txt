@@ -1,4 +1,4 @@
-Antworten zu Übungsaufgabe 8.1
+Antworten zu Übungsaufgabe 9.1
 ==============================
 
 a) TCCR1A: 10000001

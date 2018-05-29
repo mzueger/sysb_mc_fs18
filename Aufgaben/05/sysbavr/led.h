@@ -1,3 +1,6 @@
+#ifndef LED_H_
+#define LED_H_
+
 /**********************************************************
  * SysB: Mikrocontroller                                  *
  *                                                        *
@@ -28,3 +31,5 @@ void ledOn(int8_t led);
 void ledOff(int8_t led);
 
 void ledToggle(int8_t led);
+
+#endif /* LED_H_ */

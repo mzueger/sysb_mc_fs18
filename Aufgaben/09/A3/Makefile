@@ -16,7 +16,7 @@ F_OSC = 8000000
 FORMAT = ihex
 
 # Target file name (without extension).
-TARGET = U8_A3c
+TARGET = U9_A3c
 
 # List C source files here. (C dependencies are automatically generated.)
 SRC = $(TARGET).c

@@ -1,5 +1,5 @@
 /*
- * Uebungsaufgabe 8.2 (Taster S1)
+ * Uebungsaufgabe 9.2 (Taster S1)
  * 
  */
 

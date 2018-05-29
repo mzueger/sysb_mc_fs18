@@ -1,5 +1,5 @@
 /*
- * Übungsaufgabe 8.2
+ * Übungsaufgabe 9.2
  * 
  */
 
