@@ -50,7 +50,7 @@ ISR(TIMER0_COMPA_vect) {
         if(t > 0) {
             usartWriteString("Temperature: ");
             int16_t t1 = (int16_t)t;
-            int16_t t2 = (int16_t)((t + 0.005) * 100) - t1;
+            int16_t t2 = (int16_t)((t - t1 + 0.005) * 100);
             
             usartWriteInt16(t1);
             usartWriteString(".");
