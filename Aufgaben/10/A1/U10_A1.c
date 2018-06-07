@@ -7,6 +7,7 @@
 
 #include <avr/io.h>
 #include <avr/power.h>
+#include <avr/interrupt.h>
 #include <pwm.h>
 #include <button.h>
 
@@ -16,19 +17,21 @@
 #define HIGHTIME_DELTA 1
 
 ISR(TIMER0_OVF_vect) { // alle 32.64 ms (1 / 8 MHz * 1024 * 255)
-    static uint16_t ht = 25;	// motor stopped first
-    static count = 0;
+    static int16_t ht = 25;	// motor stopped first
+    static int count = 0;
     count++;
-    if(count > 3)	// alle 97.92 ms -> in 2.5s full speed
-    if(buttonGet(BUTTON_S1) == BUTTON_PRESSED) {
-        ht += HIGHTIME_DELTA;
-        if(ht > HIGHTIME_MAX) ht = HIGHTIME_MAX;
-        pwmUpdateOC1A(PERIOD, ht);
-    }
-    else if(buttonGet(BUTTON_S2) == BUTTON_PRESSED) {
-        ht -= HIGHTIME_DELTA;
-        if(ht < HIGHTIME_MIN) ht = HIGHTIME_MIN;
-        pwmUpdateOC1A(PERIOD, ht);
+    if(count > 3) {	// alle 97.92 ms -> in 2.5s full speed
+		if(buttonGet(BUTTON_S1) == BUTTON_PRESSED) {
+			ht += HIGHTIME_DELTA;
+			if(ht > HIGHTIME_MAX) ht = HIGHTIME_MAX;
+			pwmUpdateOC1A(PERIOD, ht);
+		}
+		else if(buttonGet(BUTTON_S2) == BUTTON_PRESSED) {
+			ht -= HIGHTIME_DELTA;
+			if(ht < HIGHTIME_MIN) ht = HIGHTIME_MIN;
+			pwmUpdateOC1A(PERIOD, ht);
+		}
+		count = 0;
     }
 }
 
